@@ -105,7 +105,7 @@
       <details open>
       <summary>Permissions & History (1)</summary>
 
-      - `[Switch to]` Off — Don't filter adult content from my web results
+      - `[Off — Don't filter adult content from my web results]` In Windows Search, web previews will not automatically load web results if they may contain adult content. If you choose to preview web results, we'll apply the following setting:
       </details>
   - ## Privacy (12 total)
       <details open>
