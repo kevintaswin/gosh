@@ -1,7 +1,9 @@
 - ## Windows Settings
-  - ## System (18 total)
+  - ## System (19 total)
     - ## Display (1)
       - `[25%]` Change brightness for the built-in display
+    - ## Sound (1)
+      - `[25%]` Master volume
     - ## Notifications & actions (3)
       - `[Off]` Show me the Windows welcome experience after updates and occasionally when I sign in to highlight what's new and suggested
       - `[Off]` Suggest ways I can finish setting up my device to get the most out of Windows
@@ -27,16 +29,31 @@
       - `[On]` Save multiple items to the clipboard to use later. Press the Windows logo key + V to view your clipboard history and paste from it.
     - ## About (1)
       - `[NAME-MODEL]` Rename this PC
-  - ## Devices (5 total)
+  - ## Devices (9 total)
+    - ## Touchpad
+      - ## Advanced gesture configuration
+        - ## Configure your three finger gestures (4)
+          - `Switch apps` Up
+          - `Switch apps` Down
+          - `Volume down` Left
+          - `Volume up` Right
     - ## Typing (5)
       - `[Off]` Autocorrect misspelled words
       - `[Off]` Highlight misspelled words
       - `[Off]` Show text suggestions as I type on the software keyboard
       - `[Off]` Add a space after I choose a text suggestion
       - `[Off]` Add a period after I double-tap the Spacebar
-  - ## Personalization (1 total)
+  - ## Personalization (5 total)
+    - ## Background (1)
+      - `[Solid color]` Background     
     - ## Lock screen (1)
       - `[None]` Choose one app to show detailed status on the lock screen
+    - ## Start Menu (1)
+      - `[Off]` Show recently added apps
+    - ## Background (1)
+      - `[Solid color]` Background
+    - ## Taskbar (1)
+      - `[On]` Automatically hide the taskbar in desktop mode
   - ## Apps (1 total)
     - ## Offline maps (1)
       - `[Off]` Automatically update maps
@@ -69,7 +86,7 @@
       - `[Off]` Required diagnostic data: Send only info about your device, its settings and capabilities, and whether it is performing properly.
         - `[Off]` Send optional inking and typing diagnostic data to Microsoft to improve the language recognition and suggestion capabilities of apps and services running on Windows.
       - `[Off]` Let Microsoft use your diagnostic data, excluding information about websites you browse, to offer you personalized tips, ads, and recommendations to enhance your Microsoft experiences.
-      - `[Delete] Delete diagnostic data that Microsoft has collected about this device.
+      - `[Delete]` Delete diagnostic data that Microsoft has collected about this device.
       - `[Never]` Windows should ask for my feedback
     - ## Activity history (2)
       - `[Off]` Store my activity history on this device
@@ -95,10 +112,10 @@
       - `[Off]` Show frequently used folders in Quick access
     - ## View (5)
       - `[On]` Display the full path in the title bar
-      - `[On]` Show hidden files, folders, and drives
-      - `[On]` Hide empty drives
-      - `[On]` Hide extensions for known file types
-      - `[On]` Hide folder merge conflicts
+      - `[Show hidden files, folders, and drives]` Hidden files and folders
+      - `[Off]` Hide empty drives
+      - `[Off]` Hide extensions for known file types
+      - `[Off]` Hide folder merge conflicts
   - ## Indexing Options (1 total)
     - ## Modify (1)
       - `[Off]` Users
@@ -109,20 +126,13 @@
     - ## Pointer Options (2)
       - `[Level 7]` Select a pointer speed
       - `[Off]` Enhance pointer precision
-  - ## Network and Sharing Center (8 total)
+  - ## Network and Sharing Center (3 total)
     - ## Change adapter settings (2)
       - Ethernet
       - Wi-Fi
-    - ## Change advanced sharing settings (6)
-      - ## Private (3)
-        - `[On]` Turn on network discovery
-          - `[On]` Turn on automatic setup of network connected devices.
+    - ## Change advanced sharing settings (1)
+      - ## Private (1)
         - `[On]` Turn on file and printer sharing
-      - ## Public (2)
-        - `[On]` Turn on network discovery
-        - `[On]` Turn on file and printer sharing
-      - ## All Networks (1)
-        - `[On]` Turn on sharing so anyone with network access can read and write files in the Public folders
   - ## Power Option (4 total)
     - ## Choose what the power button does (4)
       - `[Do nothing (On battery, Plugged in)]` When I press the power button
@@ -141,8 +151,8 @@
           - `[,]` Decimal symbol
           - `[.]` Digit grouping symbol
         - ## Time (4)
-          - `[H:mm]` Short time:
-          - `[H:mm:ss]` Long time
+          - `[H:mm tt]` Short time:
+          - `[H:mm:ss tt]` Long time
           - `[]` AM symbol
           - `[]` PM symbol
         - ## Date (2)
