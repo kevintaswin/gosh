@@ -24,7 +24,7 @@
       - `[Off]` Show suggestions in your timeline
       - `[Open windows only]` Pressing Alt + Tab shows
     - ## Shared experiences (1)
-      - `Off` Let apps on other devices (including linked phones and tablets) open and message apps on this device, and vice versa
+      - `[Off]` Let apps on other devices (including linked phones and tablets) open and message apps on this device, and vice versa
     - ## Clipboard (1)
       - `[On]` Save multiple items to the clipboard to use later. Press the Windows logo key + V to view your clipboard history and paste from it.
     - ## About (1)
