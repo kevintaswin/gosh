@@ -33,10 +33,10 @@
     - ## Touchpad
       - ## Advanced gesture configuration
         - ## Configure your three finger gestures (4)
-          - `Switch apps` Up
-          - `Switch apps` Down
-          - `Volume down` Left
-          - `Volume up` Right
+          - `[Switch apps]` Up
+          - `[Switch apps]` Down
+          - `[Volume down]` Left
+          - `[Volume up]` Right
     - ## Typing (5)
       - `[Off]` Autocorrect misspelled words
       - `[Off]` Highlight misspelled words
