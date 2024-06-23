@@ -3,7 +3,7 @@ Dengan instalasi sistem operasi dengan metode Dualboot ini, perangkat penyimpana
 - `/dev/sda1` merupakan partisi EFI.
 - `/dev/sda2` merupakan partisi Microsoft reserved.
 - `/dev/sda3` merupakan partisi sistem operasi Windows.
-- `/dev/sda4` merupakan partisi Windows Recovery Environemnt.
+- `/dev/sda4` merupakan partisi Windows Recovery Environment.
 
 Sehingga partisi `/dev/sda3` akan diciutkan ke partisi `/dev/sda5` yang didedikasikan khusus untuk partisi Arch Linux dengan metode pemartisian standar yang di dalamnya terdapat partisi besar tergabung untuk root, home dan berkas swap.
 ### Prasyarat
@@ -40,8 +40,7 @@ Sehingga partisi `/dev/sda3` akan diciutkan ke partisi `/dev/sda5` yang didedika
 5. Pasang partisi:
 
    - `mount /dev/sda5 /mnt`
-   - `mkdir -p /boot/efi`
-   - `mkdir -p /mnt/home`
+   - `mkdir /mnt/boot/efi`
    - `mount /dev/sda1 /boot/efi`
 6. Buat Tabel Berkas Sistem:
 
@@ -64,13 +63,13 @@ Sehingga partisi `/dev/sda3` akan diciutkan ke partisi `/dev/sda5` yang didedika
     </details>
 8. Instal sistem seminimum mungkin:
 
-   - `pacstrap -K /mnt base linux linux-firmware`
+   - `pacstrap -K /mnt base linux`
 9. Beralih Terminal ke sistem yang baru diinstal:
 
     - `arch-chroot /mnt`
 10. Instal paket penunjang:
 
-    - `pacman -S intel-ucode sof-firmware sudo grub efibootmgr base-devel git nano cpupower xorg xorg-xinit pulseaudio pavucontrol`
+    - `pacman -S linux-firmware intel-ucode sof-firmware sudo grub efibootmgr base-devel git nano cpupower xorg xorg-xinit pulseaudio pavucontrol`
 11. Atur kata sandi pengguna root:
 
     - `passwd`
