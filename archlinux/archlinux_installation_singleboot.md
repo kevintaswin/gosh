@@ -56,13 +56,13 @@ Dengan instalasi sistem operasi dengan metode Singleboot ini, perangkat penyimpa
     </details>
 11. Instal sistem seminimum mungkin:
 
-   - `pacstrap -K /mnt base linux linux-firmware`
+   - `pacstrap -K /mnt base linux`
 12. Beralih Terminal ke sistem yang baru diinstal:
 
     - `arch-chroot /mnt`
 13. Instal paket penunjang:
 
-    - `pacman -S intel-ucode sof-firmware sudo grub efibootmgr base-devel git nano cpupower xorg xorg-xinit pulseaudio pavucontrol`
+    - `pacman -S linux-firmware intel-ucode sof-firmware sudo grub efibootmgr base-devel git nano cpupower xorg xorg-xinit pulseaudio pavucontrol`
 14. Atur kata sandi pengguna root:
 
     - `passwd`
