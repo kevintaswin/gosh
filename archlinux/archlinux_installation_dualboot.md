@@ -40,7 +40,7 @@ Sehingga partisi `/dev/sda3` akan diciutkan ke partisi `/dev/sda5` yang didedika
 5. Pasang partisi:
 
    - `mount /dev/sda5 /mnt`
-   - `mkdir /mnt/boot/efi`
+   - `mkdir -p /mnt/boot/efi`
    - `mount /dev/sda1 /boot/efi`
 6. Buat Tabel Berkas Sistem:
 
