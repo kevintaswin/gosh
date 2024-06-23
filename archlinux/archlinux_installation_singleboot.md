@@ -24,17 +24,16 @@ Dengan instalasi sistem operasi dengan metode Singleboot ini, perangkat penyimpa
    - `dd if=/dev/zero of=/dev/sda status=progress`
 6. Konfigurasi perangkat penyimpanan dituju dengan `cfdisk /dev/sda` lalu konfigurasi sebagai berikut:
 
-   - 33M untuk /dev/sda1
+   - 29M untuk /dev/sda1
    - 100% untuk /dev/sda2
 7. Format partisi:
 
-   - `mkfs.vfat -F 32 /dev/sda1`
+   - `mkfs.vfat -F 16 /dev/sda1`
    - `mkfs.ext4 /dev/sda2`
 8. Pasang partisi:
 
    - `mount /dev/sda2 /mnt`
-   - `mkdir -p /boot/efi`
-   - `mkdir -p /mnt/home`
+   - `mkdir /mnt/boot/efi`
    - `mount /dev/sda1 /boot/efi`
 9. Buat Tabel Berkas Sistem:
 
