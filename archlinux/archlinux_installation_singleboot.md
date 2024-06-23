@@ -33,7 +33,7 @@ Dengan instalasi sistem operasi dengan metode Singleboot ini, perangkat penyimpa
 8. Pasang partisi:
 
    - `mount /dev/sda2 /mnt`
-   - `mkdir /mnt/boot/efi`
+   - `mkdir -p /mnt/boot/efi`
    - `mount /dev/sda1 /boot/efi`
 9. Buat Tabel Berkas Sistem:
 
