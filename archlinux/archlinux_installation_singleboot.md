@@ -56,7 +56,7 @@ Dengan instalasi sistem operasi dengan metode Singleboot ini, perangkat penyimpa
     </details>
 11. Instal sistem seminimum mungkin:
 
-   - `pacstrap -K /mnt base linux`
+    - `pacstrap -K /mnt base linux`
 12. Beralih Terminal ke sistem yang baru diinstal:
 
     - `arch-chroot /mnt`
