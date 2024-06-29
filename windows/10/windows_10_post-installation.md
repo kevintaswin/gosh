@@ -160,7 +160,7 @@
           - `[dddd, d MMMM, yyyy]` Long date
 - ## Windows Security
   - ## Account protection (1 total)
-    - `[Dismiss]` Sign in to Microsoft for enhanced security  
+    - `[Dismiss]` Sign in with Microsoft for enhanced security and other benefits.
   - ## App & browser control (2 total)
     - `[Off]` Check apps and files
     - `[Off]` SmartScreen for Microsoft Store apps
