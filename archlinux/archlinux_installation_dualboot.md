@@ -23,30 +23,31 @@ Sehingga partisi `/dev/sda3` akan diciutkan ke partisi `/dev/sda5` yang didedika
 4. Tunggu sampai Windows memuat dan mengenali semua perubahan yang terjadi.
 ## Instalasi
 1. Mulai ulang perangkat ke ISO Arch Linux. Tunggu sampai masuk ke Terminal.
-2. Dapatkan daftar cerminan HTTPS terbaru dan tercepat:
+2. Ubah zona waktu sistem live:
 
-   - `reflector --latest 9999 --protocol https --sort rate --save /etc/pacman.d/mirrorlist`
+   - `timedatectl set-timezone Asia/Jakarta`
+3. Dapatkan daftar cerminan HTTPS terbaru dan tercepat:
+   - `reflector --verbose --latest 400 --protocol https --sort rate --save /etc/pacman.d/mirrorlist`
 
-      > Kiat: Pastikan internet terhubung: `ping -c 3 google.com`
+      > Kiat: Pastikan internet terhubung: `ping -c 3 google.com`.
 
-3. Dapatkan daftar perangkat penyimpanan terhubung:
-
+4. Dapatkan daftar perangkat penyimpanan terhubung:
    - `lsblk`
 
      > Kiat: Lihat pada ukuran partisi yang sudah diciutkan tadi dan ingatlah nama partisi tersebut.
-4. Format partisi:
+5. Format partisi:
 
    - `mkfs.ext4 /dev/sda5`
-5. Pasang partisi:
+6. Pasang partisi:
 
    - `mount /dev/sda5 /mnt`
    - `mkdir -p /mnt/boot/efi`
    - `mount /dev/sda1 /boot/efi`
-6. Buat Tabel Berkas Sistem:
+7. Buat Tabel Berkas Sistem:
 
    - `mkdir /mnt/etc`
    - `genfstab -U -p /mnt >> /mnt/etc/fstab`
-7. Unduh paket satu per satu dengan `nano /etc/pacman.conf` lalu konfigurasi sebagai berikut:
+8. Unduh paket satu per satu dengan `nano /etc/pacman.conf` lalu konfigurasi sebagai berikut:
     <details>
       <summary>Sebelum</summary>
 
@@ -61,25 +62,27 @@ Sehingga partisi `/dev/sda3` akan diciutkan ke partisi `/dev/sda5` yang didedika
       37:     ParallelDownloads = 1
       ```
     </details>
-8. Instal sistem seminimum mungkin:
+9. Instal sistem seminimum mungkin:
 
    - `pacstrap -K /mnt base linux`
-9. Beralih Terminal ke sistem yang baru diinstal:
+10. Beralih Terminal ke sistem yang baru diinstal:
 
     - `arch-chroot /mnt`
-10. Instal paket penunjang:
+11. Instal paket penunjang:
+    - `pacman -S linux-firmware intel-ucode sof-firmware sudo grub efibootmgr base-devel git nano libx11 xorg-server xorg-xinit libxrandr xorg-xrandr libxft xf86-video-intel xclip pcmanfm alsa-utils`
 
-    - `pacman -S linux-firmware intel-ucode sof-firmware sudo grub efibootmgr base-devel git nano cpupower xorg xorg-xinit pulseaudio pavucontrol`
-11. Atur kata sandi pengguna root:
+      > Kiat: Sesuaikan paket `xf86-video-intel` melalui acuan persis pada tautan berikut:
+      > - [Installation guide - ArchWiki](https://wiki.archlinux.org/title/Installation_guide)
+12. Atur kata sandi pengguna root:
 
     - `passwd`
-12. Buat pengguna baru non root:
+13. Buat pengguna baru non root:
 
     - `useradd -m -g users -G wheel kevintaswin`
-13. Atur kata sandi untuk pengguna baru:
+14. Atur kata sandi untuk pengguna baru:
 
     - `passwd kevintaswin`
-14. Izinkan pengguna baru mengakses perintah istimewa dengan `EDITOR=nano visudo` lalu konfigurasi sebagai berikut:
+15. Izinkan pengguna baru mengakses perintah istimewa dengan `EDITOR=nano visudo` lalu konfigurasi sebagai berikut:
     <details>
       <summary>Sebelum</summary>
 
@@ -94,10 +97,10 @@ Sehingga partisi `/dev/sda3` akan diciutkan ke partisi `/dev/sda5` yang didedika
       108:    %wheel ALL=(ALL:ALL) ALL
       ```
     </details>
-15. Instal pemuat boot berbasis EFI:
+16. Instal pemuat boot berbasis EFI:
 
     - `grub-install --target=x86_64-efi --bootloader-id="Arch Linux" --recheck`
-16. Instankan proses hitung mundur saat boot dengan `nano /etc/default/grub` lalu konfigurasi sebagai berikut:
+17. Instankan proses hitung mundur saat boot dengan `nano /etc/default/grub` lalu konfigurasi sebagai berikut:
     <details>
       <summary>Sebelum</summary>
 
@@ -112,10 +115,10 @@ Sehingga partisi `/dev/sda3` akan diciutkan ke partisi `/dev/sda5` yang didedika
       4:      GRUB_TIMEOUT=0
       ```
     </details>
-17. Finalisasikan pembuatan GRUB:
+18. Finalisasikan pembuatan GRUB:
 
     - `grub-mkconfig -o /boot/grub/grub.cfg`
-18. Nonaktifkan logging Journald dengan `nano /etc/systemd/journald.conf` lalu konfigurasi sebagai berikut:
+19. Nonaktifkan logging Journald dengan `nano /etc/systemd/journald.conf` lalu konfigurasi sebagai berikut:
     <details>
       <summary>Sebelum</summary>
 
@@ -130,32 +133,26 @@ Sehingga partisi `/dev/sda3` akan diciutkan ke partisi `/dev/sda5` yang didedika
       20:     Storage=none
       ```
     </details>
-19. Atur konfigurasi frekuensi prosesor selalu maksimum setiap saat dengan `nano /etc/default/cpupower` lalu konfigurasi sebagai berikut:
-    <details>
-      <summary>Sebelum</summary>
+20. Buat layanan governor dan frekuensi prosesor selalu maksimum setiap saat dengan `nano /usr/lib/systemd/system/setcpugf.service` lalu konfigurasi sebagai berikut:
+    ```
+    [Unit]
+    Description=Set maximum CPU governor and frequency
 
-      ```
-      3:      #governor=`ondemand`
-      7:      #min_freq="2.25Ghz"
-      8:      #max_freq="3GHz"
-      ```
-    </details>
-    <details open>
-      <summary>Sesudah</summary>
+    [Service]
+    ExecStart=/bin/bash -c 'echo performance | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor && echo 2600000 | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_min_freq'
+    KillMode=process
+    Restart=always
 
-      ```
-      3:      governor=`performance`
-      7:      min_freq="2600Mhz"
-      8:      max_freq="2600MHz"
-      ```
-    </details>
+    [Install]
+    WantedBy=multi-user.target
+    ```
 
-    > Kiat: Sesuaikan frekuensi prosesor dengan yang dimiliki. Acuan persis dapat ditemukan pada tautan-tautan berikut:
+    > Kiat: Sesuaikan frekuensi prosesor dengan acuan persis pada tautan-tautan berikut:
     > - [Intel® - Product Specifications - Processors](https://ark.intel.com/content/www/us/en/ark.html#@Processors)
     > - [AMD Ryzen™ - Desktop, Laptop and Workstation Processor Specifications](https://www.amd.com/en/products/specifications/processors.html)
     > - [AMD EPYC™ - Server Processor Specifications](https://www.amd.com/en/products/specifications/server-processor.html)
     > - [AMD EPYC™ Embedded - Embedded Processor Specifications](https://www.amd.com/en/products/specifications/embedded.html)
-20. Bersihkan tembolok dan berkas log pacman serta cegah pembuatan berkas-berkas log oleh lastlogin dan Journald:
+21. Bersihkan tembolok dan berkas log pacman serta cegah pembuatan berkas-berkas log oleh lastlogin dan Journald:
     - `pacman -Scc` jawab dengan opsi `y` pada kedua pertanyaan yang muncul
     - `rm /var/log/pacman.log`
     - `rm /var/log/btmp && ln -s /dev/null /var/log/btmp`
@@ -163,8 +160,8 @@ Sehingga partisi `/dev/sda3` akan diciutkan ke partisi `/dev/sda5` yang didedika
     - `ln -s /dev/null /var/log/utmp`
     - `rm /var/log/wtmp && ln -s /dev/null /var/log/wtmp`
 
-      > Rujukan: https://serverfault.com/a/1123625
-21. Bersihkan histori perintah dan mulai ulang ke sistem operasi Arch Linux:
+      > Rujukan: [security - Linux: disable wtmp/utmp, sshd ip logging and any mentions of ip that does remote access - Server Fault](https://serverfault.com/a/1123625)
+22. Bersihkan histori perintah dan mulai ulang ke sistem operasi Arch Linux:
 
     - `history -c && history -w && exit`
     - `umount -a`
