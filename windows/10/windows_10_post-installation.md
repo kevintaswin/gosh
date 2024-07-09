@@ -1,7 +1,14 @@
 - ## Windows Settings
-  - ## System (19 total)
-    - ## Display (1)
+  - ## System (23 total)
+    - ## Display (5)
       - `[25%]` Change brightness for the built-in display
+      - ## Night light settings (3)
+        - `[65%]` Strength
+        - ### Schedule night light
+          - ### Set hours
+            - `[3:15 AM]` Turn on
+            - `[3:00 AM]` Turn off
+      - `[100%]` Change the size of text, apps, and other items
     - ## Sound (1)
       - `[25%]` Master volume
     - ## Notifications & actions (3)
@@ -43,15 +50,13 @@
       - `[Off]` Show text suggestions as I type on the software keyboard
       - `[Off]` Add a space after I choose a text suggestion
       - `[Off]` Add a period after I double-tap the Spacebar
-  - ## Personalization (5 total)
+  - ## Personalization (4 total)
     - ## Background (1)
       - `[Solid color]` Background     
     - ## Lock screen (1)
       - `[None]` Choose one app to show detailed status on the lock screen
     - ## Start Menu (1)
       - `[Off]` Show recently added apps
-    - ## Background (1)
-      - `[Solid color]` Background
     - ## Taskbar (1)
       - `[On]` Automatically hide the taskbar in desktop mode
   - ## Apps (1 total)
