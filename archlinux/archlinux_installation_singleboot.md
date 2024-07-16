@@ -1,6 +1,6 @@
 ### Deskripsi
 Dengan instalasi sistem operasi dengan metode Singleboot ini, perangkat penyimpanan akan memiliki satu sistem operasi, yakni hanya Arch Linux. Dengan struktur partisi yang sudah ada sebagai berikut:
-- `/dev/sda1` merupakan partisi EFI.
+- `/dev/sda1` merupakan partisi ESP.
 - `/dev/sda2` merupakan partisi Arch Linux.
 ### Prasyarat
 - Unduh [ISO Arch Linux](https://archlinux.org/download/).
@@ -41,7 +41,7 @@ Dengan instalasi sistem operasi dengan metode Singleboot ini, perangkat penyimpa
 
    - `mount /dev/sda2 /mnt`
    - `mkdir -p /mnt/boot/efi`
-   - `mount /dev/sda1 /boot/efi`
+   - `mount /dev/sda1 /mnt/boot/efi`
 10. Buat Tabel Berkas Sistem:
 
     - `mkdir /mnt/etc`
@@ -70,7 +70,7 @@ Dengan instalasi sistem operasi dengan metode Singleboot ini, perangkat penyimpa
 14. Instal paket penunjang:
     - `pacman -S linux-firmware intel-ucode sof-firmware sudo grub efibootmgr base-devel git nano libx11 xorg-server xorg-xinit libxrandr xorg-xrandr libxft xf86-video-intel xclip pcmanfm alsa-utils`
 
-      > Kiat: Sesuaikan paket `xf86-video-intel` melalui acuan persis pada tautan berikut:
+      > Kiat: Sesuaikan paket `intel-ucode` dan `xf86-video-intel` melalui acuan persis pada tautan berikut:
       > - [Installation guide - ArchWiki](https://wiki.archlinux.org/title/Installation_guide)
 15. Atur kata sandi pengguna root:
 
@@ -96,9 +96,9 @@ Dengan instalasi sistem operasi dengan metode Singleboot ini, perangkat penyimpa
       108:    %wheel ALL=(ALL:ALL) ALL
       ```
     </details>
-19. Instal pemuat boot berbasis EFI:
+19. Instal pemuat boot:
 
-    - `grub-install --target=x86_64-efi --bootloader-id="Arch Linux" --recheck`
+    - `grub-install --bootloader-id="Arch Linux"`
 20. Instankan proses hitung mundur saat boot dengan `nano /etc/default/grub` lalu konfigurasi sebagai berikut:
     <details>
       <summary>Sebelum</summary>
@@ -146,11 +146,7 @@ Dengan instalasi sistem operasi dengan metode Singleboot ini, perangkat penyimpa
     WantedBy=multi-user.target
     ```
 
-    > Kiat: Sesuaikan frekuensi prosesor dengan acuan persis pada tautan-tautan berikut:
-    > - [Intel® - Product Specifications - Processors](https://ark.intel.com/content/www/us/en/ark.html#@Processors)
-    > - [AMD Ryzen™ - Desktop, Laptop and Workstation Processor Specifications](https://www.amd.com/en/products/specifications/processors.html)
-    > - [AMD EPYC™ - Server Processor Specifications](https://www.amd.com/en/products/specifications/server-processor.html)
-    > - [AMD EPYC™ Embedded - Embedded Processor Specifications](https://www.amd.com/en/products/specifications/embedded.html)
+    > Kiat: Dapatkan frekuensi maksimum persis prosesor: `cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_max_freq`.
 24. Bersihkan tembolok dan berkas log pacman serta cegah pembuatan berkas-berkas log oleh lastlogin dan Journald:
     - `pacman -Scc` jawab dengan opsi `y` pada kedua pertanyaan yang muncul
     - `rm /var/log/pacman.log`
