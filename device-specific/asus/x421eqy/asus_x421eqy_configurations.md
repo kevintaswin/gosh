@@ -8,7 +8,7 @@ Dengan instalasi sistem operasi dengan metode Dualboot ini, perangkat penyimpana
 Pengalokasian paling minimum partisi-partisi di atas sudah benar-benar dicari tahu sedemikian rupa agar dipastikan muat. Informasi lebih lanjut sebagai berikut:
 1. Partisi ESP `/dev/nvme0n1p1` akan hanya meninggalkan 2 KiB (2048 bytes) ruang kosong saat Windows 10 (Versi 22H2) dan Arch Linux diinstal. Menguranginya sebanyak satu sektor pun akan mengakibatkan pemuat boot GRUB gagal diinstal.
 2. Partisi Microsoft reserved `/dev/nvme0n1p2` sudah setara jumlah sektornya layaknya dibuat oleh Windows Setup sendiri.
-3. Partisi sistem operasi Arch Linux `/dev/nvme0n1p4` paling minimum per 14 Juli 2024 sejumlah 1091 MiB. Menguranginya sebanyak satu Megabyte pun akan mengakibatkan kegagalan saat instalasi paket kernel [`linux`](https://archlinux.org/packages/core/x86_64/linux/). Akan tetapi, jika pada masa mendatang 1091 MiB tidak lagi cukup maka tambahkan saja mulai dari 1 MiB dan lihat hasilnya.
+3. Partisi sistem operasi Arch Linux `/dev/nvme0n1p4` paling minimum per 14 Juli 2024 sejumlah 1091 MiB. Menguranginya sebanyak 1 MiB pun akan mengakibatkan kegagalan saat instalasi paket kernel [`linux`](https://archlinux.org/packages/core/x86_64/linux/). Akan tetapi, jika pada masa mendatang 1091 MiB tidak lagi cukup maka tambahkan saja mulai dari 1 MiB dan lihat hasilnya.
 ### Prasyarat
 - Unduh [ISO Arch Linux](https://archlinux.org/download/).
 - Unduh [ISO Media Instalasi Windows 10](https://aka.ms/DownloadWindows10).
@@ -29,9 +29,9 @@ Pengalokasian paling minimum partisi-partisi di atas sudah benar-benar dicari ta
 4. Dapatkan daftar cerminan HTTPS terbaru dan tercepat:
 
    - `reflector --verbose --latest 400 --protocol https --sort rate --save /etc/pacman.d/mirrorlist`
-5. Buat empat partisi dengan `parted -a none /dev/nvme0n1` lalu konfigurasi sebagai berikut:
+5. Buat tiga partisi dengan `parted -a none /dev/nvme0n1` lalu konfigurasi sebagai berikut:
    - `mklabel gpt`
-   - `unit s`
+   - `u s`
    - `mkpart "" 34 57665`
    - `mkpart "" 57666 90433`
    - `mkpart "" 997980814 1000215182`
@@ -44,6 +44,7 @@ Pengalokasian paling minimum partisi-partisi di atas sudah benar-benar dicari ta
      > Kiat: Jumlah sektor untuk partisi sistem operasi Arch Linux ditemukan dengan pertama-tama mengetikkan jumlah Megabyte yang dibutuhkan pada utilitas `cfdisk`. Setelah itu, cukup lakukan pengurangan pada sektor akhir penyimpanan (`1000215182`) dengan jumlah sektor yang telah didapatkan sebelumnya.
 6. Format partisi:
 
+   - `mkfs.vfat -F16 /dev/nvme0n1p1`
    - `mkfs.ext4 /dev/nvme0n1p4`
 7. Pasang partisi:
 
@@ -260,7 +261,7 @@ Pengalokasian paling minimum partisi-partisi di atas sudah benar-benar dicari ta
    - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.ZuneMusic_2019.19071.19011.0_neutral_~_8wekyb3d8bbwe`
    - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.ZuneVideo_2019.19071.19011.0_neutral_~_8wekyb3d8bbwe`
 
-     > Kiat: Perintah-perintah di atas bisa dan boleh dijalankan dalam bentuk berkas batch (.bat).
+     > Kiat: Perintah-perintah di atas bisa dan boleh dijalankan dalam bentuk berkas batch (.cmd).
 6. Prainstal driver perangkat-perangkat khusus:
    - `Dism /Image:C:\ /Add-Driver /Driver:"01__Unknown device__ASUSSystemControlInterfacev3_ASUS_Z_V3.1.31.0_15974\asussci2.inf"`
    - `Dism /Image:C:\ /Add-Driver /Driver:"02,03→06,12__Unknown device (6), PCI Data Acquisition and Signal Processing Controller__intel_dptf_8.7.10802.26924(station-drivers.com)\dptf_acpi.inf"`
@@ -291,12 +292,12 @@ Pengalokasian paling minimum partisi-partisi di atas sudah benar-benar dicari ta
    - `Dism /Image:C:\ /Add-Driver /Driver:"24b__Generic Monitor__026560e67f31c7175b1e69561a1e3fe7670a58c3\MyASUS_Splendid.Inf"`
    - `Dism /Image:C:\ /Add-Driver /Driver:"25__System Firmware__catcab_1dab3b898c8ec5bc219b264f18d23e723b92cf0c\X421EQY_308.inf"`
 
-     > Kiat: Perintah-perintah di atas tidak bisa dan tidak boleh dijalankan dalam bentuk berkas batch (.bat) karena mengandung karakter-karakter spesial. Melainkan, salin dari `Notepad` dan tempel semua sekaligus perintah-perintah tersebut ke `Command Prompt`.
+     > Kiat: Perintah-perintah di atas tidak bisa dan tidak boleh dijalankan dalam bentuk berkas batch (.cmd) karena mengandung karakter-karakter spesial. Melainkan, salin dari `Notepad` dan tempel semua sekaligus perintah-perintah tersebut ke `Command Prompt`.
 7. Buka `Registry Editor` dengan `regedit` pilih subkunci `HKEY_LOCAL_MACHINE` kemudian lakukan hal-hal berikut:
 
    - Pada menu `File` > `Load Hive...` buka sarang `C:\Windows\System32\config\SYSTEM`.
    - Pada jendela `Load Hive` ketikkan `SYS`.
-   - Buka subkunci `SYS\SETUP` dan ubah isi String `CmdLine` dari yang sebelumnya `oobe\windeploy.exe` menjadi `cmd.exe`.
+   - Buka subkunci `SYS\Setup` dan ubah isi String `CmdLine` dari yang sebelumnya `oobe\windeploy.exe` menjadi `cmd.exe`.
    - Kembali subkunci `HKEY_LOCAL_MACHINE` teratas dan pilih subkunci `SYS`.
    - Pada menu `File` > `Unload Hive...` pilih `Yes`.
    - Terakhir, tutup Registry Editor.
@@ -318,7 +319,7 @@ Pengalokasian paling minimum partisi-partisi di atas sudah benar-benar dicari ta
 13. Sesaat layar pemuat sudah hitam kosong lanjutkan ke proses OOBE:
     - `exit`
 14. Munculkan jendela `Command Prompt` dengan `Shift + F10`.
-15. Terapkan kebijakan group (terkhusus penonaktifan Microsoft Defender Antivirus):
+15. Terapkan kebijakan grup (terkhusus penonaktifan Microsoft Defender Antivirus):
 
     - `gpedit.msc`
     - `gpupdate.exe /force`
