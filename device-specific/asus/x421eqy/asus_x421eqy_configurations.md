@@ -73,10 +73,10 @@ Pengalokasian paling minimum partisi-partisi di atas sudah benar-benar dicari ta
 10. Instal sistem seminimum mungkin:
     - `pacstrap -K /mnt base linux grub efibootmgr`
 
-    > Kiat: Agar dapat benar-benar menginstal paket-paket di atas pada situasi penyiapan yang sesempit dan seoptimal ini; Maka jalankanlah perintah-perintah di bawah ini setiap kali berhasil menginstal satu paket:
-    > - `arch-chroot /mnt`
-    > - `pacman -Scc` jawab dengan opsi `y` pada kedua pertanyaan yang muncul
-    > - `rm /var/log/pacman.log && history -c && history -w && exit`
+     > Kiat: Agar dapat benar-benar menginstal paket-paket di atas pada situasi penyiapan yang sesempit dan seoptimal ini; Maka jalankanlah perintah-perintah di bawah ini setiap kali berhasil menginstal satu paket:
+     > - `arch-chroot /mnt`
+     > - `pacman -Scc` jawab dengan opsi `y` pada kedua pertanyaan yang muncul
+     > - `rm /var/log/pacman.log && history -c && history -w && exit`
 
 11. Ubah bahasa sistem dengan `nano /mnt/etc/locale.gen` lalu konfigurasi sebagai berikut:
     <details>
