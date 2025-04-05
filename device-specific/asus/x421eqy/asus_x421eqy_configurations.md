@@ -8,6 +8,7 @@ Dengan instalasi sistem operasi dengan metode Dualboot ini, perangkat penyimpana
 Pengalokasian paling minimum partisi-partisi di atas sudah benar-benar dicari tahu sedemikian rupa agar dipastikan muat. Informasi lebih lanjut sebagai berikut:
 1. Partisi ESP `/dev/nvme0n1p1` akan hanya meninggalkan 2 KiB (2048 bytes) ruang kosong saat Windows 10 (Versi 22H2) dan Arch Linux diinstal. Menguranginya sebanyak satu sektor pun akan mengakibatkan pemuat boot GRUB gagal diinstal.
 2. Partisi Microsoft reserved `/dev/nvme0n1p2` sudah setara jumlah sektornya layaknya dibuat oleh Windows Setup sendiri.
+3. Partisi sistem operasi Windows `/dev/nvme0n1p3` menempati ruang sejumlah 475 GiB.
 3. Partisi sistem operasi Arch Linux `/dev/nvme0n1p4` paling minimum per 14 Juli 2024 sejumlah 1091 MiB. Menguranginya sebanyak 1 MiB pun akan mengakibatkan kegagalan saat instalasi paket kernel [`linux`](https://archlinux.org/packages/core/x86_64/linux/). Akan tetapi, jika pada masa mendatang 1091 MiB tidak lagi cukup maka tambahkan saja mulai dari 1 MiB dan lihat hasilnya.
 ### Prasyarat
 - Unduh [ISO Arch Linux](https://archlinux.org/download/).
@@ -47,10 +48,12 @@ Pengalokasian paling minimum partisi-partisi di atas sudah benar-benar dicari ta
 6. Format partisi:
 
    - `mkfs.vfat -F16 /dev/nvme0n1p1`
-   - `mkfs.ext4 /dev/nvme0n1p4`
+   - `mkfs.ext4 /dev/nvme0n1p3`
+
+     > Kiat: Pada bagian ini total partisi yang dibuat masih berjumlah tiga partisi. Oleh karena itu, `nvme0n1p3` adalah partisi yang tepat untuk digunakan. Sebab saat melakukan instalasi Windows 10 (Versi 22H2) barulah dibuat partisi baru yang akan menempati urutan `nvme0n1p3` serta berada di antara partisi Microsoft reserved dan partisi sistem operasi Arch Linux. Sehingga urutan partisi sistem operasi Arch Linux akan berubah menjadi `nvme0n1p4`.
 7. Pasang partisi:
 
-   - `mount /dev/nvme0n1p4 /mnt`
+   - `mount /dev/nvme0n1p3 /mnt`
    - `mkdir -p /mnt/boot/efi`
    - `mount /dev/nvme0n1p1 /mnt/boot/efi`
 8. Buat Tabel Berkas Sistem:
