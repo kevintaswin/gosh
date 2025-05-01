@@ -1,0 +1,19 @@
+1. Cabut media instalasi dan nyalakan perangkat. Tunggu hingga jendela `Command Prompt` muncul.
+2. Hapus aplikasi `Microsoft Edge` dan `Microsoft Edge Updater`:
+    - `copy "C:\Program Files (x86)\Microsoft\Edge\Application\92.0.902.67\Installer\setup.exe" C:\`
+    - `C:\setup.exe --uninstall --msedge --verbose-logging --system-level --force-uninstall`
+    - `C:\setup.exe --uninstall --msedgeupdate --verbose-logging --system-level --force-uninstall`
+     
+      > Kiat: Beri jeda setidaknya satu menit setelah menjalankan perintah kedua sebelum menjalankan perintah ketiga guna memastikan Microsoft Edge benar-benar secara utuh mencopot seluruh pemasangannya.
+3. Buka Registry Editor dengan `regedit` lalu buka subkunci `HKEY_LOCAL_MACHINE\Setup`. Ubah isi String `CmdLine` dari `cmd.exe` kembali menjadi `oobe\windeploy.exe`. Setelahnya, tutup Registry Editor.
+4. Mulai proses penginstalan driver perangkat-perangkat khusus:
+    - `oobe\windeploy.exe`
+
+      > Kiat: Perhatikan daftar grafik driver berikut.
+      > |Nama Driver Grafik|Dapat Diinstal Saat Tahap Pra-OOBE (`windeploy`)|
+      > |-|-|
+      > |Intel® UHD Graphics|Bisa|
+      > |Intel® Iris® Xᵉ|Tidak bisa|
+      > |NVIDIA GeForce Game Ready Driver|Tidak bisa|
+5. Sesaat layar pemuat sudah hitam kosong lanjutkan ke proses OOBE:
+    - `exit`
