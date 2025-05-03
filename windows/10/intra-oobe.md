@@ -1,3 +1,5 @@
+> [!CAUTION]
+> Koneksi internet tidak diperkenankan selama tahapan ini.<br>Pastikan sambungan Ethernet tetap terputus dan Wi-Fi tidak tersambung ke jaringan manapun.
 1. Tekan <kbd>Fn</kbd>+<kbd>Shift</kbd>+<kbd>F10</kbd> (khusus laptop ASUS) atau <kbd>Shift</kbd>+<kbd>F10</kbd> untuk memunculkan jendela `Command Prompt`.
 2. Pada jendela `Administrator: C:\Windows\System32\cmd.exe` jalankan perintah `gpedit` lalu konfigurasi sebagai berikut:
 
