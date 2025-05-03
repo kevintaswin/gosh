@@ -1,18 +1,21 @@
 > [!CAUTION]
-> Sambungan ke internet melalui Ethernet ataupun Wi-Fi tidak diperkenankan mulai dari tahap ini dan seterusnya.
-1. Klik kanan area kosong pada `Taskbar` kemudian lakukan hal-hal berikut:
+> Koneksi internet tidak diperkenankan selama tahapan ini. Pastikan sambungan Ethernet tetap terputus dan Wi-Fi tidak tersambung ke jaringan manapun.
+1. Tekan <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Delete</kbd> pilih `Change password`. Atur `New password` dan `Confirm password` lalu `Submit`.
+
+    > Kiat: Dengan begini pertanyaan keamanan tetap dalam keadaan tidak disetel sehingga cenderung aman.
+2. Klik kanan area kosong pada `Taskbar` kemudian lakukan hal-hal berikut:
 
     - Pada bagian `Search` pilih `Hidden` untuk menyembunyikan bilah pencarian.
     - Pilih `Show Task View button` untuk menyembunyikan tombol tampilan tugas.
-2. Buka ikon sistem `Battery` pada `Taskbar` lalu gulir `Power mode` ke 🎚️ Level 3 `Best performance`.
-3. Tekan <kbd>Win</kbd>+<kbd>R</kbd> untuk memunculkan jendela `Run`.
-4. Isi kolom `Open` dengan `cmd` lalu tekan <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> untuk menjalankannya sebagai administrator.
+3. Buka ikon sistem `Battery` pada `Taskbar` lalu gulir `Power mode` ke 🎚️ Level 3 `Best performance`.
+4. Tekan <kbd>Win</kbd>+<kbd>R</kbd> untuk memunculkan jendela `Run`.
+5. Isi kolom `Open` dengan `cmd` lalu tekan <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> untuk menjalankannya sebagai administrator.
 
     > Kiat: Jaga jendela ini tetap terbuka hingga keseluruhan tahap-tahap setelah ini selesai.
-5. Pada jendela `Administrator: C:\Windows\System32\cmd.exe` jalankan perintah `powercfg -h off` guna menonaktifkan `Fast startup`.
+6. Pada jendela `Administrator: C:\Windows\System32\cmd.exe` jalankan perintah `powercfg -h off` guna menonaktifkan `Fast startup`.
 
     > Kiat: Diperlukan untuk perangkat dengan banyak sistem operasi.
-6. Pada jendela `Administrator: C:\Windows\System32\cmd.exe` jalankan perintah `SystemPropertiesPerformance` kemudian lakukan hal-hal berikut:
+7. Pada jendela `Administrator: C:\Windows\System32\cmd.exe` jalankan perintah `SystemPropertiesPerformance` kemudian lakukan hal-hal berikut:
 
     - Sisakan tiga di antaranya tetap aktif sebagai berikut:
 
@@ -21,71 +24,47 @@
       - `✅ Smooth edges of screen fonts`
 
     - Pilih `OK` untuk menerapkan perubahan.
-7. Pada jendela `Administrator: C:\Windows\System32\cmd.exe` jalankan perintah `notepad drivers\etc\hosts` kemudian lakukan hal-hal berikut:
+8. Pada jendela `Administrator: C:\Windows\System32\cmd.exe` jalankan perintah `notepad drivers\etc\hosts` kemudian lakukan hal-hal berikut:
 
     - Pada menu `View` pilih `Status Bar`.
     - Pada `Ln 22, Col 1` tekan <kbd>Enter</kbd> sekali lalu ketikkan sebagai berikut:
 
-      ```
-      0.0.0.0 app-edge.smartscreen.microsoft.com dl-edge.smartscreen.microsoft.com nav-edge.smartscreen.microsoft.com telem-edge.smartscreen.microsoft.com safebrowsing-cache.google.com safebrowsing.google.com safebrowsing.googleapis.com sb-ssl.google.com
-      ```
+      `0.0.0.0 app-edge.smartscreen.microsoft.com dl-edge.smartscreen.microsoft.com nav-edge.smartscreen.microsoft.com telem-edge.smartscreen.microsoft.com safebrowsing-cache.google.com safebrowsing.google.com safebrowsing.googleapis.com sb-ssl.google.com`
     - Pada `Ln 23, Col 249` tekan <kbd>Enter</kbd> sekali.
     - Pada menu `File` pilih `Save`.
     - Tutup Notepad.
 
-8. Pada jendela `Administrator: C:\Windows\System32\cmd.exe` jalankan perintah `regedit` kemudian lakukan hal-hal berikut:
+9. Pada jendela `Administrator: C:\Windows\System32\cmd.exe` jalankan perintah `regedit` kemudian lakukan hal-hal berikut:
 
     - Nonaktifkan saran pencarian web:
 
       - Buka subkunci `HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows`.
-      - Pada menu `Edit` > `New` > `Key` namai dengan `Explorer`.
-      - Pada menu `Edit` > `New` > `DWORD (32-bit) Value` namai dengan `DisableSearchBoxSuggestions`.
+      - Buat `Key` bernama `Explorer`.
+      - Pada Key `Explorer` buat `DWORD (32-bit) Value` bernama `DisableSearchBoxSuggestions`.
       - Ubah isi Value tersebut menjadi `1`.
     - Sembunyikan ikon sistem `Meet Now` pada `Taskbar`:
 
       - Buka subkunci `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies`.
-      - Pada menu `Edit` > `New` > `Key` namai dengan `Explorer`.
-      - Pada menu `Edit` > `New` > `DWORD (32-bit) Value` namai dengan `HideSCAMeetNow`.
+      - Buat `Key` bernama `Explorer`.
+      - Pada Key `Explorer` buat `DWORD (32-bit) Value` bernama `HideSCAMeetNow`.
       - Ubah isi Value tersebut menjadi `1`.
     - Nonaktifkan pendeteksian tipe setiap folder (terkhusus berisi banyak gambar, video ataupun audio) guna mempercepat pemuatannya:
 
       - Buka subkunci `HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell`.
-      - Hapus subkunci `BagMRU` dan `Bags`.
-      - Buat kembali subkunci `Bags` dengan sebelumnya memilih subkunci `Shell`.
-      - Pada menu `Edit` > `New` > `Key` namai dengan `Bags`.
-      - Pada menu `Edit` > `New` > `Key` namai dengan `AllFolders`.
-      - Pada menu `Edit` > `New` > `Key` namai dengan `Shell`.
-      - Pada menu `Edit` > `New` > `String Value` namai dengan `FolderType`.
+      - Hapus Key `BagMRU` dan `Bags`.
+      - Pada Key `Shell` buat kembali `Key` bernama `Bags`.
+      - Pada Key `Bags` buat `Key` bernama `AllFolders`.
+      - Pada Key `AllFolders` buat `Key` bernama `Shell`.
+      - Pada Key `Shell` buat `String Value` bernama `FolderType`.
       - Ubah isi Value tersebut menjadi `NotSpecified`.
 
     - Tutup Registry Editor.
-9. Pada jendela `Administrator: C:\Windows\System32\cmd.exe` jalankan perintah `taskmgr` kemudian lakukan hal-hal berikut:
+10. Pada jendela `Administrator: C:\Windows\System32\cmd.exe` jalankan perintah `taskmgr` kemudian lakukan hal-hal berikut:
 
-    - Beralih ke ⇄ Startup.
-    - Ubah Status `Microsoft OneDrive` menjadi `Disable`.
-    - Beralih ke ⇄ Processes.
-    - Temukan Background processes `Windows Explorer` lalu pilih `Restart`.
-    - Tutup Task Manager.
+    <table><tr><th colspan="3"> <br>⇄ Startup<br> </th></tr><td>1</td><td>Microsoft OneDrive</td><td align="center"><code>❌ Disable</code></td></tr><tr><th colspan="3"> <br>⇄ Processes<br>Background processes<br> </th></tr><td>2</td><td>Windows Explorer</td><td align="center"><code>⟳ Restart</code></td></tr></table>
 10. Pada jendela `Administrator: C:\Windows\System32\cmd.exe` jalankan perintah `devmgmt` kemudian lakukan hal-hal berikut:
 
-    - Pada Tipe perangkat `Network adapters` buka Properties `Realtek PCIe FE Family Controller`:
-
-      - Beralih ke ⇄ Advanced.
-      - Pada `Energy-Efficient Ethernet` ubah Value menjadi `Disabled`.
-      - Pilih `OK` untuk menerapkan perubahan.
-    - Pada Tipe perangkat `Network adapters` buka Properties `Intel(R) Wi-Fi 6 AX201 160MHz`:
-
-      - Beralih ke ⇄ Advanced.
-      - Pada `MIMO Power Save Mode` ubah Value menjadi `No SMPS`.
-      - Pada `Roaming Aggressiveness` ubah Value menjadi `5. Highest`.
-      - Pada `Throughput Booster` ubah Value menjadi `Enabled`.
-      - Pada `Transmit Power` ubah Value menjadi `5. Highest`.
-      - Pilih `OK` untuk menerapkan perubahan.
-    - Pada Tipe perangkat `Network adapters` buka Properties `Realtek USB 5GbE Family Controller`:
-
-      - Beralih ke ⇄ Advanced.
-      - Pada `Energy-Efficient Ethernet` ubah Value menjadi `Disabled`.
-      - Pilih `OK` untuk menerapkan perubahan.
+    <table><tr><th colspan="3"> <br>Network adapters\Intel(R) Wi-Fi 6 AX201 160MHz<br>Properties<br>⇄ Advanced<br> </th></tr><tr><td>1</td><td>MIMO Power Save Mode</td><td align="center"><code>🔽 No SMPS</code></td></tr><tr><td>2</td><td>Roaming Aggressiveness</td><td align="center"><code>🔽 5. Highest</code></td></tr><tr><td>3</td><td>Throughput Booster</td><td align="center"><code>🔽 Enabled</code></td></tr><tr><td>4</td><td>Transmit Power</td><td align="center"><code>🔽 5. Highest</code></td></tr><tr><th colspan="3"> <br>Network adapters\Realtek PCIe FE Family Controller<br>Properties<br>⇄ Advanced<br> </th></tr><tr><td>5</td><td>Energy-Efficient Ethernet</td><td align="center"><code>🔽 Disabled</code></td></tr><tr><th colspan="3"> <br>Network adapters\Realtek USB 5GbE Family Controller<br>Properties<br>⇄ Advanced<br> </th></tr><tr><td>6</td><td>Energy-Efficient Ethernet</td><td align="center"><code>🔽 Disabled</code></td></tr></table>
 11. Buka `File Explorer` pilih `Downloads` lalu klik kanan area kosong. Pada bagian `Group by` pilih `(None)`.
 12. Pada jendela `Administrator: C:\Windows\System32\cmd.exe` jalankan perintah `start "" ms-settings:` kemudian lakukan hal-hal berikut:
     <table><tr><th colspan="8"> <br>System - Display<br> </th></tr><tr><td>1</td><td>Change brightness for the built-in display</td><td colspan="6" align="center"><code>🎚️ 25%</code></td></tr><tr><td>2</td><td>Change the size of text, apps, and other items</td><td colspan="6" align="center"><code>🔽 100%</code></td></tr><tr><th colspan="8"> <br>System - Display - Night light settings<br> </th></tr><tr><td>3</td><td>Strength</td><td colspan="6" align="center"><code>🎚️ 65%</code></td></tr><tr><td>4</td><td>Schedule</td><td colspan="2" align="center"><code>✅ Schedule night light</code></td><td align="center"><code>🔵 Set hours</code></td><td align="center">Turn on<br><code>🔽 3:15 AM</code></td><td colspan="2" align="center">Turn off<br><code>🔽 3:00 AM</code></td></tr><tr><th colspan="8"> <br>System - Sound<br> </th></tr><tr><td>5</td><td>Master volume</td><td colspan="6" align="center"><code>🎚️ 25%</code></td></tr><tr><th colspan="8"> <br>System - Notifications & actions<br> </th></tr><tr><td>6</td><td>Show me the Windows welcome experience after updates and occasionally when I sign in to highlight what's new and suggested</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><td>7</td><td>Suggest ways I can finish setting up my device to get the most out of Windows</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><td>8</td><td>Get tips, tricks, and suggestions as you use Windows</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><th colspan="8"> <br>System - Focus assist<br> </th></tr><tr><td>9</td><td>When I'm duplicating my display</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><td>10</td><td>When I'm playing a game</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><td>11</td><td>When I'm using an app in full screen mode</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><th colspan="8"> <br>System - Power & sleep<br> </th></tr><tr><td>12</td><td>On battery power, turn off after</td><td colspan="6" align="center"><code>🔽 Never</code></td></tr><tr><td>13</td><td>When plugged in, tum off after</td><td colspan="6" align="center"><code>🔽 Never</code></td></tr><tr><td>14</td><td>On battery power, PC goes to sleep after</td><td colspan="6" align="center"><code>🔽 Never</code></td></tr><tr><td>15</td><td>When plugged in, PC goes to sleep after</td><td colspan="6" align="center"><code>🔽 Never</code></td></tr><tr><th colspan="8"> <br>System - Battery<br> </th></tr><tr><td>16</td><td>Lower screen brightness while in battery saver</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><th colspan="8"> <br>System - Multitasking<br> </th></tr><tr><td>17</td><td>When I snap a window, show what I can snap next to it</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><td>18</td><td>Show suggestions in your timeline</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><td>19</td><td>Pressing Alt + Tab shows</td><td colspan="6" align="center"><code>🔽 Open windows only</code></td></tr><tr><th colspan="8"> <br>System - Shared experiences<br> </th></tr><tr><td>20</td><td>Let apps on other devices (including linked phones and tablets) open and message apps on this device, and vice versa</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><th colspan="8"> <br>System - Clipboard<br> </th></tr><tr><td>21</td><td>Save multiple items to the clipboard to use later. Press the Windows logo key + V to view your clipboard history and paste from it.</td><td colspan="6" align="center"><code>✅ On</code></td></tr><tr><th colspan="8"> <br>System - About<br> </th></tr><tr><td>22</td><td>Rename this PC</td><td colspan="6" align="center"><code>✏️ NAME-MODEL</code></td></tr><tr><th colspan="8"> <br>Devices - Touchpad - Advanced gesture configuration<br> </th></tr><tr><td>23</td><td>Configure your three finger gestures</td><td align="center">Up<br><code>🔽 Switch apps</code></td><td align="center">Down<br><code>🔽 Switch apps</code></td><td colspan="2" align="center">Left<br><code>🔽 Volume down</code></td><td colspan="2" align="center">Right<br><code>🔽 Volume up</code></td></tr><tr><th colspan="8"> <br>Devices - Typing<br> </th></tr><tr><td>24</td><td>Autocorrect misspelled words</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><td>25</td><td>Highlight misspelled words</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><td>26</td><td>Show text suggestions as I type on the software keyboard</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><td>27</td><td>Add a space after I choose a text suggestion</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><td>28</td><td>Add a period after I double-tap the Spacebar</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><th colspan="8"> <br>Personalization - Background (Requires product activation)<br> </th></tr><tr><td>29</td><td>Background</td><td colspan="6" align="center"><code>🔽 Solid color</code></td></tr><tr><th colspan="8"> <br>Personalization - Colors (Requires product activation)<br> </th></tr><tr><td>30</td><td>Choose your color</td><td colspan="6" align="center"><code>🔽 Dark</code></td></tr><tr><th colspan="8"> <br>Personalization - Lock screen<br> </th></tr><tr><td>31</td><td>Choose one app to show detailed status on the lock screen</td><td colspan="6" align="center"><code>🌤️ None</code></td></tr><tr><th colspan="8"> <br>Personalization - Start (Requires product activation)<br> </th></tr><tr><td>32</td><td>Show recently added apps</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><th colspan="8"> <br>Personalization - Taskbar (Requires product activation)<br> </th></tr><tr><td>33</td><td>Automatically hide the taskbar in desktop mode</td><td colspan="6" align="center"><code>✅ On</code></td></tr><tr><th colspan="8"> <br>Apps - Offline maps<br> </th></tr><tr><td>34</td><td>Automatically update maps</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><th colspan="8"> <br>Accounts - Sign-in options<br> </th></tr><tr><td>35</td><td>Automatically save my restartable apps when I sign out and restart them after I sign in.</td><td colspan="6" align="center"><code>✅ On</code></td></tr><tr><th colspan="8"> <br>Accounts - Windows backup<br> </th></tr><tr><td>36</td><td>Get quick access to apps on Windows device</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><td>37</td><td>Remember my preferences</td><td align="center">Accessibility<br><code>❌ Off</code></td><td align="center">Accounts, WiFi networks and passwords<br><code>❌ Off</code></td><td align="center">Personalization<br><code>❌ Off</code></td><td align="center">Language preferences and dictionary<br><code>❌ Off</code></td><td align="center">Other Windows settings<br><code>❌ Off</code></td><td align="center">Quickly access your preferences across Microsoft experiences<br><code>❌ Off</code></td></tr><tr><th colspan="8"> <br>Gaming - Game Bar<br> </th></tr><tr><td>38</td><td>Enable Game Bar for things like recording game clips, chatting with friends, and receiving game invites. (Some games require Game Bar for receiving game invites.)</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><td>39</td><td>Allow your controller to open Game Bar</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><th colspan="8"> <br>Ease of Access - Display<br> </th></tr><tr><td>40</td><td>Show transparency in Windows</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><th colspan="8"> <br>Search - Permissions & History<br> </th></tr><tr><td>41</td><td>In Windows Search, web previews will not automatically load web results if they may contain adult content. If you choose to preview web results, we'll apply the following setting:</td><td colspan="6" align="center"><code>🔵 Off — Don't filter adult content from my web results</code></td></tr><tr><th colspan="8"> <br>Privacy - General<br> </th></tr><tr><td>42</td><td>Let apps use advertising ID to make ads more interesting to you based on your app activity (Turning this off will reset your ID.)</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><td>43</td><td>Let websites provide locally relevant content by accessing my language list</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><td>44</td><td>Show me suggested content in the Settings app</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><th colspan="8"> <br>Privacy - Inking & typing personalization<br> </th></tr><tr><td>45</td><td>Use your typing history and handwriting patterns to create a personal dictionary that makes better suggestions for you.<br> <br>When this is switched off your personal typing and inking dictionary will be cleared, but the standard dictionary will continue to provide typing suggestions and handwriting recognition.</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><th colspan="8"> <br>Privacy - Diagnostics & feedback<br> </th></tr><tr><td>46</td><td>Send optional inking and typing diagnostic data to Microsoft to improve the language recognition and suggestion capabilities of apps and services running on Windows.</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><td>47</td><td>Choose how much diagnostic data you want to send to Microsoft. Diagnostic data is used to help keep Windows secure and up to date, troubleshoot problems, and make product improvements. Regardless of which option you select, your device will be equally secure and will operate normally. <a href="https://go.microsoft.com/fwlink/?LinkID=614828">Get more info about these settings</a></td><td colspan="6" align="center"><code>🔵 Required diagnostic data: Send only info about your device, its settings and capabilities, and whether it is performing properly.</code></td></tr><tr><td>48</td><td>Let Microsoft use your diagnostic data, excluding information about websites you browse, to offer you personalized tips, ads, and recommendations to enhance your Microsoft experiences.</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><td>49</td><td>Delete diagnostic data that Microsoft has collected about this device.</td><td colspan="6" align="center"><code>➤ Delete</code></td></tr><tr><td>50</td><td>Windows should ask for my feedback</td><td colspan="6" align="center"><code>🔽 Never</code></td></tr><tr><th colspan="8"> <br>Privacy - Activity history<br> </th></tr><tr><td>51</td><td>Store my activity history on this device</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><td>52</td><td>Clear activity history</td><td colspan="6" align="center"><code>➤ Clear</code></td></tr><tr><th colspan="8"> <br>Privacy - Background apps<br> </th></tr><tr><td>53</td><td>Let apps run in the background</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><th colspan="8"> <br>Update & Security - Delivery Optimization<br> </th></tr><tr><td>54</td><td>Allow downloads from other PCs</td><td colspan="6" align="center"><code>❌ Off</code></td></tr><tr><th colspan="8"> <br>Update & Security - Troubleshoot<br> </th></tr><tr><td>55</td><td>Recommended troubleshooters can help improve your Windows experience. How much do you want Microsoft to help when we find issues on your device that troubleshooters might be able to fix?</td><td colspan="6" align="center"><code>🔽 Don't run any troubleshooters</code></td></tr></table>
