@@ -1,6 +1,6 @@
 > [!CAUTION]
 > Koneksi internet tidak diperkenankan selama tahapan ini.<br>Pastikan sambungan Ethernet tetap terputus dan Wi-Fi tidak tersambung ke jaringan manapun.
-1. Tekan <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Delete</kbd> pilih `Change password`. Atur `New password` dan `Confirm password` lalu `Submit`.
+1. Tekan <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Delete</kbd> pilih `Change a password`. Atur `New password` dan `Confirm password` lalu `Submit`.
 
     > Kiat: Dengan begini pertanyaan keamanan tetap dalam keadaan tidak disetel sehingga cenderung aman.
 2. Klik kanan area kosong pada `Taskbar` lalu lakukan hal-hal berikut:
