@@ -63,14 +63,15 @@
     - Ubah Status `Microsoft OneDrive` menjadi `Disable`.
     - Beralih ke ⇄ Processes.
     - Temukan Background processes `Windows Explorer` lalu pilih `Restart`.
+    - Tutup Task Manager.
 10. Pada jendela `Administrator: C:\Windows\System32\cmd.exe` jalankan perintah `devmgmt` kemudian lakukan hal-hal berikut:
 
-    - Network adapters\Realtek PCIe FE Family Controller
+    - Pada Tipe perangkat `Network adapters` buka Properties `Realtek PCIe FE Family Controller`:
 
       - Beralih ke ⇄ Advanced.
       - Pada `Energy-Efficient Ethernet` ubah Value menjadi `Disabled`.
       - Pilih `OK` untuk menerapkan perubahan.
-    - Network adapters\Intel(R) Wi-Fi 6 AX201 160MHz
+    - Pada Tipe perangkat `Network adapters` buka Properties `Intel(R) Wi-Fi 6 AX201 160MHz`:
 
       - Beralih ke ⇄ Advanced.
       - Pada `MIMO Power Save Mode` ubah Value menjadi `No SMPS`.
@@ -78,7 +79,7 @@
       - Pada `Throughput Booster` ubah Value menjadi `Enabled`.
       - Pada `Transmit Power` ubah Value menjadi `5. Highest`.
       - Pilih `OK` untuk menerapkan perubahan.
-    - Network adapters\Realtek USB 5GbE Family Controller
+    - Pada Tipe perangkat `Network adapters` buka Properties `Realtek USB 5GbE Family Controller`:
 
       - Beralih ke ⇄ Advanced.
       - Pada `Energy-Efficient Ethernet` ubah Value menjadi `Disabled`.
@@ -92,3 +93,6 @@
 
 14. Pada jendela `Administrator: C:\Windows\System32\cmd.exe` jalankan perintah `start "" windowsdefender:` kemudian lakukan hal-hal berikut:
     <table><tr><th colspan="4"> <br>Account protection<br> </th></tr><tr><td>1</td><td><b>Microsoft account</b><br>Sign in with Microsoft for enhanced security and other benefits.</td><td colspan="2" align="center"><code>➤ Dismiss</code></td></tr><tr><th colspan="4"> <br>App & browser control<br> </th></tr><tr><td>2</td><td><b>Check apps and files</b><br>Microsoft Defender SmartScreen helps protect your device by checking for<br>unrecognized apps and files from the web.</td><td align="center"><code>❌ Off</code></tr><tr><td>3</td><td><b>SmartScreen for Microsoft Store apps</b><br>Microsoft Defender SmartScreen protects your device by checking web content<br>that Microsoft Store apps use.</td><td align="center"><code>❌ Off</code></tr><tr><th colspan="4"> <br>App & browser control - Exploit protection settings<br>⇄ System settings<br> </th></tr><tr><td>4</td><td><b>Control flow guard (CFG)</b><br>Ensures control flow integrity for indirect calls.</td><td align="center"><code>🔽 Off by default</code></tr><tr><td>5</td><td><b>Data Execution Prevention (DEP)</b><br>Prevents code from being run from data-only memory pages.</td><td align="center"><code>🔽 Off by default</code></tr><tr><td>6</td><td><b>Force randomization for images (Mandatory ASLR)</b><br>Force relocation of images not compiled with /DYNAMICBASE</td><td align="center"><code>🔽 Off by default</code></tr><tr><td>7</td><td><b>High-entropy ASLR</b><br>Increase variability when using Randomize memory allocations (Bottom-up ASLR).</td><td align="center"><code>🔽 Off by default</code></tr><tr><td>8</td><td><b>Randomize memory allocations (Bottom-up ASLR)</b><br>Randomize locations for virtual memory allocations.</td><td align="center"><code>🔽 Off by default</code></tr><tr><td>9</td><td><b>Validate exception chains (SEHOP)</b><br>Ensures the integrity of an exception chain during dispatch.</td><td align="center"><code>🔽 Off by default</code></tr><tr><td>10</td><td><b>Validate heap integrity</b><br>Terminates a process when heap corruption is detected.</td><td align="center"><code>🔽 Off by default</code></tr></table>
+
+15. Pada jendela `Administrator: C:\Windows\System32\cmd.exe` jalankan perintah `exit`.
+16. Nyalakan ulang perangkat dari menu `Start` > `Power` pilih `Restart`.
