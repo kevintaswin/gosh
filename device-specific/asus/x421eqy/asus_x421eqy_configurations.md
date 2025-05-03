@@ -13,9 +13,9 @@ Pengalokasian paling minimum partisi-partisi di atas sudah benar-benar dicari ta
 ### Prasyarat
 - Unduh [ISO Arch Linux](https://archlinux.org/download/).
 - Unduh [ISO Media Instalasi Windows 10](https://aka.ms/DownloadWindows10).
+### Instalasi Arch Linux
 > [!TIP]
 > Koneksi internet diperkenankan selama tahapan ini.<br>Baik melalui sambungan Ethernet maupun jaringan Wi-Fi tertentu.
-### Instalasi Arch Linux
 1. Mulai ulang perangkat ke ISO Arch Linux. Tunggu sampai masuk ke Terminal.
 2. Sambungkan perangkat ke jaringan Wi-Fi dengan `iwctl` lalu konfigurasi sebagai berikut:
    - `station wlan0 scan`
@@ -222,9 +222,9 @@ Pengalokasian paling minimum partisi-partisi di atas sudah benar-benar dicari ta
     - `history -c && history -w && exit`
     - `umount -a`
     - `reboot`
+### Instalasi Windows 10 (Versi 22H2)
 > [!CAUTION]
 > Koneksi internet tidak diperkenankan selama tahapan ini.<br>Pastikan sambungan Ethernet tetap terputus dan Wi-Fi tidak tersambung ke jaringan manapun.
-### Instalasi Windows 10 (Versi 22H2)
 1. Mulai ulang perangkat ke ISO Media Instalasi Windows 10. Tunggu sampai masuk ke Windows Setup.
 2. Pada langkah instalasi `Where do you want to install Windows?` pilih `Unallocated Space` urutan ketiga pada daftar kemudian tunggu beberapa saat.
 3. Pada langkah instalasi `Windows needs to restart to continue` siapkan diri untuk menekan tombol Boot Menu sesaat waktu habis dan layar mati.
