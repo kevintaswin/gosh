@@ -1,3 +1,5 @@
+> [!CAUTION]
+> Sambungan ke internet melalui Ethernet ataupun Wi-Fi tidak diperkenankan mulai dari tahap ini dan seterusnya.
 1. Klik kanan area kosong pada `Taskbar` kemudian lakukan hal-hal berikut:
 
     - Pada bagian `Search` pilih `Hidden` untuk menyembunyikan bilah pencarian.
@@ -96,3 +98,58 @@
 
 15. Pada jendela `Administrator: C:\Windows\System32\cmd.exe` jalankan perintah `exit`.
 16. Nyalakan ulang perangkat dari menu `Start` > `Power` pilih `Restart`.
+
+> [!TIP]
+> Sambungan ke internet melalui Ethernet ataupun Wi-Fi diperkenankan mulai dari tahap ini dan seterusnya.
+17. Aktivasi Windows.
+18. Instal sejumlah program sebagai berikut:
+
+    - 7-Zip File Manager: [Unduh](https://github.com/ip7z/7zip/releases/latest).
+    - 7-Zip ZS (Zstandard, Brotli, LZ4, LZ5/Lizard compression): [Unduh](https://github.com/mcmilk/7-Zip-zstd/releases/latest).
+    - AnyDesk: [Unduh](https://anydesk.com/en/downloads/windows).
+    - Audacity: [Unduh](https://github.com/audacity/audacity/releases/latest).
+    - AudFree Spotify Music Converter: [Telusuri](https://www.google.com/search?q=AudFree%20Spotify%20Music%20Converter).
+
+      > Kiat: Memerlukan Spotify: [Unduh](https://download.scdn.co/SpotifyFullSetup.exe).
+    - Bluetooth Audio Receiver: [Unduh](https://apps.microsoft.com/detail/9n9wclwdqs5j).
+
+      > Kiat: Instalasi manual tanpa Microsoft Store dapat dilakukan sebagai berikut:
+      > - Melalui situs [Microsoft Store - Generation Project (v1.2.3) [by @rgadguard & mkuba50]](https://store.rg-adguard.net) unduh berkas `55746MarkSmirnov.BluetoothAudioReveicer_x.x.x.x_neutral_~_xwrbx6997tsfc.Msixbundle`.
+      > - Melalui `7-Zip File Manager` buka berkas `55746MarkSmirnov.BluetoothAudioReveicer_x.x.x.x_neutral_~_xwrbx6997tsfc.Msixbundle` lalu ekstrak berkas `Bluetooth%20Audio%20Reveicer_x.x.x.x_x64.msix`.
+      > - Buka `Start` ketikkan `Windows PowerShell` pilih `Run as administrator` lalu jalankan perintah `Add-AppxPackage C:\Users\User\Downloads\Bluetooth%20Audio%20Reveicer_x.x.x.x_x64.msix`.
+    - FrameView: [Unduh](https://www.nvidia.com/en-us/geforce/technologies/frameview).
+    - Glass2k: [Unduh](https://chime.tv/products/glass2k.shtml).
+    - Internet Download Manager: [Telusuri](https://www.google.com/search?q=Internet%20Download%20Manager).
+    - Microsoft 365 (Office 365) [Telusuri](https://www.google.com/search?q=Microsoft%20365%20(dahulu%20Office%20365)).
+    - MyASUS: [Unduh](https://apps.microsoft.com/detail/9n7r5s6b0zzh).
+
+      > Kiat: Instalasi manual tanpa Microsoft Store dapat dilakukan sebagai berikut:
+      > - Melalui situs [Microsoft Store - Generation Project (v1.2.3) [by @rgadguard & mkuba50]](https://store.rg-adguard.net) unduh berkas `B9ECED6F.ASUSPCAssistant_x.x.xx.x_neutral_~_qmba6cd70vzyy.appxbundle`.
+      > - Melalui `7-Zip File Manager` buka berkas `B9ECED6F.ASUSPCAssistant_x.x.xx.x_neutral_~_qmba6cd70vzyy.appxbundle` lalu ekstrak berkas `WAP_x.x.xx.x_x64.appx`.
+      > - Buka `Start` ketikkan `Windows PowerShell` pilih `Run as administrator` lalu jalankan perintah `Add-AppxPackage C:\Users\User\Downloads\WAP_x.x.xx.x_x64.appx`.
+    - nomacs: [Unduh](https://github.com/nomacs/nomacs/releases/tag/3.21.0).
+    - Notepad++: [Unduh](https://github.com/notepad-plus-plus/notepad-plus-plus/releases/latest).
+    - OBS Studio: [Unduh](https://github.com/obsproject/obs-studio/releases/latest).
+    - PotPlayer: [Unduh](https://potplayer.daum.net).
+    - PowerToys: [Unduh](https://github.com/microsoft/PowerToys/releases/latest).
+    - ProtonVPN: [Unduh](https://vpn.protondownload.com/download/ProtonVPN_win_v2.4.3.exe).
+
+      > Kiat: Tidak memperbarui program ini demi mempertahankan kemampuan pengguna memilih daftar peladen secara manual.
+    - QTTabBar: [Unduh](http://qttabbar.wdfiles.com/local--files/qttabbar1/QTTabBar%202048%20Beta2.zip).
+    - spacedesk DRIVER Console: [Unduh](https://www.spacedesk.net/downloadidd64).
+    - spacedesk VIEWER: [Unduh](https://apps.microsoft.com/detail/9nblggh4trm4).
+
+      > Kiat: Instalasi manual tanpa Microsoft Store dapat dilakukan sebagai berikut:
+      > - Melalui situs [Microsoft Store - Generation Project (v1.2.3) [by @rgadguard & mkuba50]](https://store.rg-adguard.net) unduh berkas `datronicsoft.spacedesk_x.x.xx.x_neutral_~_aa4z72nd5cmx4.msixbundle`.
+      > - Melalui `7-Zip File Manager` buka berkas `datronicsoft.spacedesk_x.x.xx.x_neutral_~_aa4z72nd5cmx4.msixbundle` lalu ekstrak berkas `spacedeskAppUWP_x.x.xx.x_x64.msix`.
+      > - Buka `Start` ketikkan `Windows PowerShell` pilih `Run as administrator` lalu jalankan perintah `Add-AppxPackage C:\Users\User\Downloads\Microsoft.UI.Xaml.2.7_x.xxxx.xxxx.x_x64__8wekyb3d8bbwe.appx`. dan `Add-AppxPackage C:\Users\User\Downloads\spacedeskAppUWP_x.x.xx.x_x64.msix`.
+    - Telegram: [Unduh](https://telegram.org/dl/desktop/win64).
+    - Uninstall Tool: [Telusuri](https://www.google.com/search?q=Uninstall%20Tool).
+    - WizTree: [Telusuri](https://www.google.com/search?q=WizTree).
+    - WhatsApp: [Unduh](https://apps.microsoft.com/detail/9nksqgp7f2nh).
+
+      > Kiat: Instalasi manual tanpa Microsoft Store dapat dilakukan sebagai berikut:
+      > - `5319275A.WhatsAppDesktop_x.xxxx.x.x_neutral_~_cv1g1gvanyjgm.msixbundle`
+      > - `Microsoft.UI.Xaml.2.8_x.xxxx.xxxxx.x_x64__8wekyb3d8bbwe.appx`
+      > - `Microsoft.VCLibs.140.00.UWPDesktop_xx.x.xxxxx.x_x64__8wekyb3d8bbwe.appx`
+    - XMedia Recode: [Unduh](https://www.xmedia-recode.de/en/download.php).
