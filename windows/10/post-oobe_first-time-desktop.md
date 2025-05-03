@@ -1,5 +1,5 @@
 > [!CAUTION]
-> Koneksi internet tidak diperkenankan selama tahapan ini. Pastikan sambungan Ethernet tetap terputus dan Wi-Fi tidak tersambung ke jaringan manapun.
+> Koneksi internet tidak diperkenankan selama tahapan ini.<br>Pastikan sambungan Ethernet tetap terputus dan Wi-Fi tidak tersambung ke jaringan manapun.
 1. Tekan <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Delete</kbd> pilih `Change password`. Atur `New password` dan `Confirm password` lalu `Submit`.
 
     > Kiat: Dengan begini pertanyaan keamanan tetap dalam keadaan tidak disetel sehingga cenderung aman.
@@ -61,7 +61,7 @@
     - Tutup Registry Editor.
 10. Pada jendela `Administrator: C:\Windows\System32\cmd.exe` jalankan perintah `taskmgr` kemudian lakukan hal-hal berikut:
 
-    <table><tr><th colspan="3"> <br>⇄ Startup<br> </th></tr><td>1</td><td>Microsoft OneDrive</td><td align="center"><code>❌ Disable</code></td></tr><tr><th colspan="3"> <br>⇄ Processes<br>Background processes<br> </th></tr><td>2</td><td>Windows Explorer</td><td align="center"><code>⟳ Restart</code></td></tr></table>
+    <table><tr><th colspan="3"> <br>⇄ Startup<br> </th></tr><td>1</td><td>Microsoft OneDrive</td><td align="center"><code>➤ Disable</code></td></tr><tr><th colspan="3"> <br>⇄ Processes<br>Background processes<br> </th></tr><td>2</td><td>Windows Explorer</td><td align="center"><code>➤ Restart</code></td></tr></table>
 10. Pada jendela `Administrator: C:\Windows\System32\cmd.exe` jalankan perintah `devmgmt` kemudian lakukan hal-hal berikut:
 
     <table><tr><th colspan="3"> <br>Network adapters\Intel(R) Wi-Fi 6 AX201 160MHz<br>Properties<br>⇄ Advanced<br> </th></tr><tr><td>1</td><td>MIMO Power Save Mode</td><td align="center"><code>🔽 No SMPS</code></td></tr><tr><td>2</td><td>Roaming Aggressiveness</td><td align="center"><code>🔽 5. Highest</code></td></tr><tr><td>3</td><td>Throughput Booster</td><td align="center"><code>🔽 Enabled</code></td></tr><tr><td>4</td><td>Transmit Power</td><td align="center"><code>🔽 5. Highest</code></td></tr><tr><th colspan="3"> <br>Network adapters\Realtek PCIe FE Family Controller<br>Properties<br>⇄ Advanced<br> </th></tr><tr><td>5</td><td>Energy-Efficient Ethernet</td><td align="center"><code>🔽 Disabled</code></td></tr><tr><th colspan="3"> <br>Network adapters\Realtek USB 5GbE Family Controller<br>Properties<br>⇄ Advanced<br> </th></tr><tr><td>6</td><td>Energy-Efficient Ethernet</td><td align="center"><code>🔽 Disabled</code></td></tr></table>
@@ -79,7 +79,7 @@
 16. Nyalakan ulang perangkat dari menu `Start` > `Power` pilih `Restart`.
 
 > [!TIP]
-> Sambungan ke internet melalui Ethernet ataupun Wi-Fi diperkenankan mulai dari tahap ini dan seterusnya.
+> Koneksi internet diperkenankan selama tahapan ini.<br>Baik melalui sambungan Ethernet maupun jaringan Wi-Fi tertentu.
 17. Aktivasi Windows.
 18. Instal sejumlah program sebagai berikut:
 
