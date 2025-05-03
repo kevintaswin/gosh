@@ -1,3 +1,5 @@
+> [!CAUTION]
+> Koneksi internet tidak diperkenankan selama tahapan ini.<br>Pastikan sambungan Ethernet tetap terputus dan Wi-Fi tidak tersambung ke jaringan manapun.
 1. Cabut media instalasi dan nyalakan perangkat. Tunggu hingga jendela `Command Prompt` muncul.
 2. Hapus aplikasi `Microsoft Edge` dan `Microsoft Edge Updater`:
     - `copy "C:\Program Files (x86)\Microsoft\Edge\Application\92.0.902.67\Installer\setup.exe" C:\`
@@ -16,4 +18,5 @@
       > |Intel® Iris® Xᵉ|Tidak bisa|
       > |NVIDIA GeForce Game Ready Driver|Tidak bisa|
 5. Sesaat layar pemuat sudah hitam kosong lanjutkan ke proses OOBE:
+
     - `exit`
