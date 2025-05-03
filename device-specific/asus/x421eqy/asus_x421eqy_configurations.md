@@ -13,6 +13,8 @@ Pengalokasian paling minimum partisi-partisi di atas sudah benar-benar dicari ta
 ### Prasyarat
 - Unduh [ISO Arch Linux](https://archlinux.org/download/).
 - Unduh [ISO Media Instalasi Windows 10](https://aka.ms/DownloadWindows10).
+> [!TIP]
+> Koneksi internet diperkenankan selama tahapan ini.<br>Baik melalui sambungan Ethernet maupun jaringan Wi-Fi tertentu.
 ### Instalasi Arch Linux
 1. Mulai ulang perangkat ke ISO Arch Linux. Tunggu sampai masuk ke Terminal.
 2. Sambungkan perangkat ke jaringan Wi-Fi dengan `iwctl` lalu konfigurasi sebagai berikut:
@@ -220,6 +222,8 @@ Pengalokasian paling minimum partisi-partisi di atas sudah benar-benar dicari ta
     - `history -c && history -w && exit`
     - `umount -a`
     - `reboot`
+> [!CAUTION]
+> Koneksi internet tidak diperkenankan selama tahapan ini.<br>Pastikan sambungan Ethernet tetap terputus dan Wi-Fi tidak tersambung ke jaringan manapun.
 ### Instalasi Windows 10 (Versi 22H2)
 1. Mulai ulang perangkat ke ISO Media Instalasi Windows 10. Tunggu sampai masuk ke Windows Setup.
 2. Pada langkah instalasi `Where do you want to install Windows?` pilih `Unallocated Space` urutan ketiga pada daftar kemudian tunggu beberapa saat.
@@ -303,42 +307,19 @@ Pengalokasian paling minimum partisi-partisi di atas sudah benar-benar dicari ta
    - Pada menu `File` > `Load Hive...` buka sarang `C:\Windows\System32\config\SYSTEM`.
    - Pada jendela `Load Hive` ketikkan `SYS`.
    - Buka subkunci `SYS\Setup` dan ubah isi String `CmdLine` dari yang sebelumnya `oobe\windeploy.exe` menjadi `cmd.exe`.
-   - Kembali subkunci `HKEY_LOCAL_MACHINE` teratas dan pilih subkunci `SYS`.
+   - Kembali ke subkunci `HKEY_LOCAL_MACHINE` teratas dan pilih subkunci `SYS`.
    - Pada menu `File` > `Unload Hive...` pilih `Yes`.
    - Terakhir, tutup Registry Editor.
 8. Matikan perangkat:
 
    - `wpeutil shutdown`
-9. Cabut media instalasi dan nyalakan perangkat. Tunggu hingga jendela `Command Prompt` muncul.
-10. Hapus aplikasi `Microsoft Edge` dan `Microsoft Edge Updater`:
-    - `copy \Program Files (x86)\Microsoft\Edge\Application\92.0.902.67\Installer\setup.exe C:\`
-    - `C:\setup.exe --uninstall --msedge --verbose-logging --system-level --force-uninstall`
-    - `C:\setup.exe --uninstall --msedgeupdate --verbose-logging --system-level --force-uninstall`
-     
-      > Kiat: Beri jeda setidaknya satu menit setelah menjalankan perintah kedua sebelum menjalankan perintah ketiga guna memastikan Microsoft Edge benar-benar secara utuh mencopot seluruh pemasangannya.
-11. Buka Registry Editor dengan `regedit` lalu buka subkunci `HKEY_LOCAL_MACHINE\Setup`. Ubah isi String `CmdLine` dari `cmd.exe` kembali menjadi `oobe\windeploy.exe`. Setelahnya, tutup Registry Editor.
-12. Mulai proses penginstalan driver perangkat-perangkat khusus:
-    - `oobe\windeploy.exe`
+9. Harap lanjut ke pra OOBE (`windeploy`) [windows/10/pre-oobe_windeploy.md](https://github.com/kevintaswin/gosh/blob/main/windows/10/pre-oobe_windeploy.md).
 
       > Kiat: Untuk perangkat ASUS VivoBook 14 X421EQY ini tidak dapat melakukan instalasi untuk kedua driver grafik Intel® Iris® Xᵉ dan NVIDIA GeForce Game Ready Driver sebelum tahap ini selesai. Jikalau berhasil pun tentunya (murni spekulatif) Intel® Arc™ Control mungkin saja tidak terinstal pada sistem.
-13. Sesaat layar pemuat sudah hitam kosong lanjutkan ke proses OOBE:
-    - `exit`
-14. Munculkan jendela `Command Prompt` dengan `Shift + F10`.
-15. Terapkan kebijakan grup (terkhusus penonaktifan Microsoft Defender Antivirus):
-
-    - `gpedit.msc`
-    - `gpupdate.exe /force`
-16. Buka `Registry Editor` dengan `regedit` kemudian lakukan hal-hal berikut:
-
-    - Buka subkunci `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings`. Buat `DWORD (32-bit) Value` bernama `TrayIconVisibility`. Ubah isi Value tersebut menjadi `1` kemudian kembalikan lagi menjadi `0`.
-    - Buka subkunci `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`. Ubah isi Value `EnableCursorSuppression`dari yang sebelumnya `1` menjadi `0`.
-17. Lakukan penyalaan ulang guna menerapkan pengonfigurasian di atas:
-
-    - `shutdown -r -t 0`
-18. Lakukan OOBE seperti biasanya dengan catatan tidak menyambungkan ke internet, menggunakan akun lokal, menonaktifkan semua setelan privasi dan tidak menggunakan Cortana.
-19. Lakukan instalasi driver grafik Intel® Iris® Xᵉ dan NVIDIA GeForce Game Ready Driver seperti biasanya dengan catatan mencentang opsi `Clean Installation` pada keduanya.
-20. Copot pemasangan `Intel® Driver & Support Assistant (Intel® DSA)`:
+10. Harap lanjut ke intra OOBE [windows/10/intra-oobe.md](https://github.com/kevintaswin/gosh/blob/main/windows/10/intra-oobe.md).
+11. Lakukan instalasi driver grafik Intel® Iris® Xᵉ dan NVIDIA GeForce Game Ready Driver seperti biasanya dengan catatan mencentang opsi `Clean Installation` pada keduanya.
+12. Copot pemasangan `Intel® Driver & Support Assistant (Intel® DSA)`:
     - `C:\ProgramData\Package Cache\{ID PENGINSTAL INTEL® DSA}\Installer.exe /uninstall`
 
       > Kiat: Periksa `{ID PENGINSTAL INTEL® DSA}` secara manual dengan mencarinya pada folder `C:\ProgramData\Package Cache` karena selalu berbeda setiap versi.
-21. Terapkan setelan-setelan yang ada pada [windows_10_post-installation.md](https://github.com/kevintaswin/gosh/blob/main/windows/10/windows_10_post-installation.md).
+13. Harap lanjut ke pasca OOBE [windows/10/post-oobe_first-time-desktop.md](https://github.com/kevintaswin/gosh/blob/main/windows/10/post-oobe_first-time-desktop.md).
