@@ -12,7 +12,7 @@
     - `oobe\windeploy.exe`
 
       > Kiat: Perhatikan daftar grafik driver berikut.
-      > |Nama Driver Grafik|Dapat Diinstal Saat Tahap Pra-OOBE (`windeploy`)|
+      > |Nama Driver Grafik|Dapat Diinstal Saat Tahap Pra OOBE (`windeploy`)|
       > |-|-|
       > |Intel® UHD Graphics|Bisa|
       > |Intel® Iris® Xᵉ|Tidak bisa|
