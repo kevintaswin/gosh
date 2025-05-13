@@ -7,7 +7,7 @@
     - `C:\setup.exe --uninstall --msedgeupdate --verbose-logging --system-level --force-uninstall`
      
       > Kiat: Beri jeda setidaknya satu menit setelah menjalankan perintah kedua sebelum menjalankan perintah ketiga guna memastikan Microsoft Edge benar-benar secara utuh mencopot seluruh pemasangannya.
-3. Buka Registry Editor dengan `regedit` lalu buka subkunci `HKEY_LOCAL_MACHINE\Setup`. Ubah isi String `CmdLine` dari `cmd.exe` kembali menjadi `oobe\windeploy.exe`. Setelahnya, tutup Registry Editor.
+3. Buka Registry Editor dengan `regedit` lalu buka subkunci `HKEY_LOCAL_MACHINE\System\Setup`. Ubah isi String `CmdLine` dari `cmd.exe` kembali menjadi `oobe\windeploy.exe`. Setelahnya, tutup Registry Editor.
 4. Mulai proses penginstalan driver perangkat-perangkat khusus:
     - `oobe\windeploy.exe`
 
