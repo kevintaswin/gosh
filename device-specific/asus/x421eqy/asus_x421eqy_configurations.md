@@ -304,12 +304,22 @@ Pengalokasian paling minimum partisi-partisi di atas sudah benar-benar dicari ta
      > Kiat: Perintah-perintah di atas tidak bisa dan tidak boleh dijalankan dalam bentuk berkas batch (.cmd) karena mengandung karakter-karakter spesial. Melainkan, salin dari `Notepad` dan tempel semua sekaligus perintah-perintah tersebut ke `Command Prompt`.
 7. Buka `Registry Editor` dengan `regedit` pilih subkunci `HKEY_LOCAL_MACHINE` kemudian lakukan hal-hal berikut:
 
-   - Pada menu `File` > `Load Hive...` buka sarang `C:\Windows\System32\config\SYSTEM`.
-   - Pada jendela `Load Hive` ketikkan `SYS`.
-   - Buka subkunci `SYS\Setup` dan ubah isi String `CmdLine` dari yang sebelumnya `oobe\windeploy.exe` menjadi `cmd.exe`.
-   - Kembali ke subkunci `HKEY_LOCAL_MACHINE` teratas dan pilih subkunci `SYS`.
-   - Pada menu `File` > `Unload Hive...` pilih `Yes`.
-   - Terakhir, tutup Registry Editor.
+   - Tampilkan jendela `Command Prompt` alih-alih memulai Windows Deployment Loader secara otomatis:
+
+      - Pada menu `File` > `Load Hive...` buka sarang `C:\Windows\System32\config\SYSTEM`.
+      - Pada jendela `Load Hive` ketikkan `SYS`.
+      - Buka subkunci `SYS\Setup` dan ubah isi String `CmdLine` dari yang sebelumnya `oobe\windeploy.exe` menjadi `cmd.exe`.
+      - Kembali ke subkunci `HKEY_LOCAL_MACHINE` teratas dan pilih subkunci `SYS`.
+      - Pada menu `File` > `Unload Hive...` pilih `Yes`.
+    - Tampilkan kursor pada layar-layar yang umumnya disembunyikan:
+
+      - Pada menu `File` > `Load Hive...` buka sarang `C:\Windows\System32\config\SOFTWARE`.
+      - Pada jendela `Load Hive` ketikkan `SOFT`.
+      - Buka subkunci `SOFT\Microsoft\Windows\CurrentVersion\Policies\System`.
+      - Ubah isi Value `EnableCursorSuppression` dari yang sebelumnya `1` menjadi `0`.
+      - Kembali ke subkunci `HKEY_LOCAL_MACHINE` teratas dan pilih subkunci `SOFT`.
+      - Pada menu `File` > `Unload Hive...` pilih `Yes`.
+   - Tutup Registry Editor.
 8. Matikan perangkat:
 
    - `wpeutil shutdown`
