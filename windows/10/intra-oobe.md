@@ -12,10 +12,6 @@
       - Buka subkunci `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings`.
       - Buat `DWORD (32-bit) Value` bernama `TrayIconVisibility`.
       - Ubah isi Value tersebut menjadi `1` kemudian kembalikan lagi menjadi `0`.
-    - Tampilkan status mendetail saat pengguna masuk dan keluar serta ketika mematikan dan menyalakan ulang perangkat:
-
-      - Buka subkunci `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`.
-      - Ubah isi Value `EnableCursorSuppression`dari yang sebelumnya `1` menjadi `0`.
     - Tutup Registry Editor.
 5. Pada jendela `Administrator: C:\Windows\System32\cmd.exe` jalankan perintah `shutdown -r -t 0` guna menerapkan pengonfigurasian di atas.
 6. Pada langkah OOBE `Let's start with region. Is this right?` biarkan wilayah berada di `United States` lalu pilih `Yes`.
