@@ -7,7 +7,7 @@
 3. Pada jendela `Administrator: C:\Windows\System32\cmd.exe` jalankan perintah `gpupdate /force` guna menerapkan secara paksa kebijakan grup.
 4. Pada jendela `Administrator: C:\Windows\System32\cmd.exe` jalankan perintah `regedit` lalu lakukan hal-hal berikut:
 
-    - Sembunyikan ikon sistem Windows Update Status:
+    - Sembunyikan ikon sistem Windows Update Status pada `Taskbar`:
 
       - Buka subkunci `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings`.
       - Buat `DWORD (32-bit) Value` bernama `TrayIconVisibility`.
