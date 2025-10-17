@@ -230,19 +230,19 @@ Pengalokasian paling minimum partisi-partisi di atas sudah benar-benar dicari ta
 3. Pada langkah instalasi `Windows needs to restart to continue` siapkan diri untuk menekan tombol Boot Menu sesaat waktu habis dan layar mati.
 4. Mulai ulang lagi perangkat ke ISO Media Instalasi Windows 10. Sesaat Windows Setup muncul, tekan `Shift + F10` untuk memunculkan jendela `Command Prompt`.
 5. Hapus aplikasi-aplikasi terprainstal:
-   - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.549981C3F5F10_1.1911.21713.0_neutral_~_8wekyb3d8bbwe`
+   - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.549981C3F5F10_2.2006.15930.0_neutral_~_8wekyb3d8bbwe`
    - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.BingWeather_4.25.20211.0_neutral_~_8wekyb3d8bbwe`
    - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.DesktopAppInstaller_2019.125.2243.0_neutral_~_8wekyb3d8bbwe`
    - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.GetHelp_10.1706.13331.0_neutral_~_8wekyb3d8bbwe`
-   - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.Getstarted_8.2.22942.0_neutral_~_8wekyb3d8bbwe`
+   - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.Getstarted_9.8.31681.0_neutral_~_8wekyb3d8bbwe`
    - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.HEIFImageExtension_1.0.22742.0_x64__8wekyb3d8bbwe`
-   - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.Microsoft3DViewer_6.1908.2042.0_neutral_~_8wekyb3d8bbwe`
+   - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.Microsoft3DViewer_7.2006.12082.0_neutral_~_8wekyb3d8bbwe`
    - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.MicrosoftOfficeHub_18.1903.1152.0_neutral_~_8wekyb3d8bbwe`
    - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.MicrosoftSolitaireCollection_4.4.8204.0_neutral_~_8wekyb3d8bbwe`
    - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.MicrosoftStickyNotes_3.6.73.0_neutral_~_8wekyb3d8bbwe`
    - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.MixedReality.Portal_2000.19081.1301.0_neutral_~_8wekyb3d8bbwe`
    - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.MSPaint_2019.729.2301.0_neutral_~_8wekyb3d8bbwe`
-   - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.Office.OneNote_16001.12026.20112.0_neutral_~_8wekyb3d8bbwe`
+   - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.Office.OneNote_16001.12624.20212.0_neutral_~_8wekyb3d8bbwe`
    - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.People_2019.305.632.0_neutral_~_8wekyb3d8bbwe`
    - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.ScreenSketch_2019.904.1644.0_neutral_~_8wekyb3d8bbwe`
    - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.SkypeApp_14.53.77.0_neutral_~_kzf8qxf38zg5c`
@@ -252,13 +252,13 @@ Pengalokasian paling minimum partisi-partisi di atas sudah benar-benar dicari ta
    - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.WebMediaExtensions_1.0.20875.0_neutral_~_8wekyb3d8bbwe`
    - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.WebpImageExtension_1.0.22753.0_x64__8wekyb3d8bbwe`
    - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.Windows.Photos_2019.19071.12548.0_neutral_~_8wekyb3d8bbwe`
-   - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.WindowsAlarms_2019.807.41.0_neutral_~_8wekyb3d8bbwe`
+   - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.WindowsAlarms_2020.615.2304.0_neutral_~_8wekyb3d8bbwe`
    - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.WindowsCalculator_2020.1906.55.0_neutral_~_8wekyb3d8bbwe`
    - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.WindowsCamera_2018.826.98.0_neutral_~_8wekyb3d8bbwe`
    - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:microsoft.windowscommunicationsapps_16005.11629.20316.0_neutral_~_8wekyb3d8bbwe`
    - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.WindowsFeedbackHub_2019.1111.2029.0_neutral_~_8wekyb3d8bbwe`
-   - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.WindowsMaps_2019.716.2316.0_neutral_~_8wekyb3d8bbwe`
-   - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.WindowsSoundRecorder_2019.716.2313.0_neutral_~_8wekyb3d8bbwe`
+   - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.WindowsMaps_2021.2005.1.0_neutral_~_8wekyb3d8bbwe`
+   - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.WindowsSoundRecorder_2020.615.2121.0_neutral_~_8wekyb3d8bbwe`
    - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.WindowsStore_11910.1002.513.0_neutral_~_8wekyb3d8bbwe`
    - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.Xbox.TCUI_1.23.28002.0_neutral_~_8wekyb3d8bbwe`
    - `dism /Image:C:\ /Remove-ProvisionedAppxPackage /PackageName:Microsoft.XboxApp_48.49.31001.0_neutral_~_8wekyb3d8bbwe`
